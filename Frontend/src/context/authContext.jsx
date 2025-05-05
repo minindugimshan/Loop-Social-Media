@@ -1,20 +1,20 @@
 import { createContext, useEffect, useState } from "react";
 
+// 1. First create and export the context
 export const AuthContext = createContext();
 
+// 2. Then export the provider component
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
 
   const login = async (inputs) => {
-    // Simulating a successful login response
     const mockUser = {
       id: 1,
       username: inputs.username,
       email: "mockuser@example.com",
     };
-
     setCurrentUser(mockUser);
   };
 
